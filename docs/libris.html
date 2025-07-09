@@ -106,17 +106,16 @@
                <div><a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img src="assets/img/logos/cc.svg" class="copyright_logo" alt="Creative Commons License"><img src="assets/img/logos/by.svg" class="copyright_logo" alt="Attribution 4.0 International"></a></div>
                <div>
                   2017 &dash; 2025<br>
-                  <script>
-  fetch('https://api.github.com/repos/Mikael61/informationsearchguide/commits?path=libris.html&per_page=1')
-    .then(response => response.json())
-    .then(data => {
-      const date = new Date(data[0].commit.committer.date);
-      document.getElementById('last-updated').textContent = date.toLocaleDateString('sv-SE');
-    })
-    .catch(() => {
-      document.getElementById('last-updated').textContent = 'Okänt';
-    });
+                  
+<script>
+fetch('https://api.github.com/repos/mikael61/informationsearchguide/commits?path=libris.html&per_page=1')
+  .then(r => r.json())
+  .then(data => {
+    const d = new Date(data[0].commit.committer.date);
+    document.getElementById('last-updated').textContent = d.toLocaleDateString('sv-SE');
+  });
 </script>
+
                   Senast uppdaterad: <span id="last-updated">Laddar...</span>
                   </div>
             </div>
