@@ -1,6 +1,6 @@
 title: informationssökningsguide
 description: Detta är en test
 # baseurl: "" # Lämna tom om du använder root
-url: "https://Mikael61.github.io"
+url: "https://Mikael61.github.io/informationsearchguide"
 plugins:
   - jekyll-last-modified-at
