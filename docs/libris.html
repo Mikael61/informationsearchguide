@@ -44,12 +44,12 @@
                            </p>
                            <p>I det egentliga Libris (som är resultatet av katalogisering i Libris katalogiseringsverktyg så har du för Nässjö stadsbiblioteks exemplar av Stieg Larssons roman "Män som hatar kvinnor" en beskrivning av exemplaret (<a href="https://libris.kb.se/l1dxffl8jmgcdwl6#it">https://libris.kb.se/l1dxffl8jmgcdwl6#it</a>) som länkas till en <a href="https://libris.kb.se/r93d9n431nql6c4#it" target="_blank">utgåva</a> (manifestation) av <a href="https://libris.kb.se/3lv80jw71tr31dz3#it" target="_blank">verket</a> (verket i Libris/Bibframes mening, inte i LRMs mening). Det här illustrerar hur Libris generar en representation av respektive entitet. Det kan noteras hur den underliggande länken mellan exemplar och manifestation (instans) sommaren 2026 inte genererar en länk i Libris gränssnitt, men finns under ytan: </p>
                            <p class="kodex">
-                              prefix : &lt;https://id.kb.se/vocab/&gt;<br/><br/>
-                           &lt;https://libris.kb.se/l1dxffl8jmgcdwl6#it&gt; a :Item ; <br/>
-                              :heldBy &lt;https://libris.kb.se/library/Nass&gt; ; <br/>
-                              :itemOf &lt;https://libris.kb.se/r93d9n431nql6c4#it&gt; ; <br/>
-                              :shelfMark [ a :ShelfMark ; <br/>
-                              :label "Hc" ] .
+                              
+                              &lt;https://libris.kb.se/l1dxffl8jmgcdwl6#it&gt; a &lt;https://id.kb.se/vocab/Item&gt;: ; <br/>
+                              &lt;https://id.kb.se/vocab/heldBy&gt; &lt;https://libris.kb.se/library/Nass&gt; ; <br/>
+                              &lt;https://id.kb.se/vocab/itemOf&gt; &lt;https://libris.kb.se/r93d9n431nql6c4#it&gt; ; <br/>
+                              &lt;https://id.kb.se/vocab/shelfmark&gt; [ a &lt;https://id.kb.se/vocab/ShelfMark&gt; ; <br/>
+                              &lt;https://id.kb.se/vocab/label&gt; "Hc" ] .
                          
                            </p><p>
                               Andelen instanser som är kopplade till ett verk är dock relativ litet. En grov uppskattning av omfattningen kan fås genom nedanstående SPARQL-sökning
@@ -57,7 +57,7 @@
                            <p class="kodex">
                               SELECT (COUNT(DISTINCT ?o) AS ?antal) <br/>
 WHERE {<br/>
-    ?s <http://exempel.org/predikat/X> ?o . <br/>
+?s  &lt;https://id.kb.se/vocab/instanceOf&gt; ?o . <br/>
     FILTER(isIRI(?s)) <br/>
     FILTER(isIRI(?o)) <br/>
 }
